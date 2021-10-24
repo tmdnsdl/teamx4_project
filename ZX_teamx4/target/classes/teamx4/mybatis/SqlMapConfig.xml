@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<!-- SqlMapConfig.xml -->
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="teamx4.model.teamx4Bean" alias="MyTeamx4"/>
+		<typeAlias type="member.model.MemberBean" alias="MemberBean"/>
+		<typeAlias type="member.model.RestBean" alias="RestBean"/>
+		<typeAlias type="member.model.ReviewBean" alias="ReviewBean"/>
+		<typeAlias alias="MyRest" type="rest.model.RestBean"/>
+		<typeAlias alias="MyUser" type="admin.model.UserBean"/>
+		<typeAlias alias="MyTeamx4" type="teamx4.model.CrawlingBean"/>
+		<typeAlias alias="MyReview" type="rest.model.ReviewBean"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="teamx4/mybatis/teamx4.xml"/>
+		<mapper resource="teamx4/mybatis/member.xml"/>
+		<mapper resource="teamx4/mybatis/user.xml"/>
+		<mapper resource="teamx4/mybatis/rest.xml"/>
+		<mapper resource="teamx4/mybatis/review.xml"/>
+	</mappers>
+</configuration>

@@ -1,0 +1,246 @@
+<style>
+    .checkbox { cursor:pointer; }
+    .checkbox .check-icon { display:inline-block; width:20px; height:20px; margin-right:4px; background:url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/ic-signup-chk-off.png) left center no-repeat; vertical-align:middle; transition-duration:.3s;background-size:20px; }
+    .checkbox input[type=checkbox] { display:none; }
+    .checkbox input[type=checkbox]:checked + .check-icon { background-image:url(https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/common/ic-review-chk-on.png); background-size:20px }
+    .readonly{background-color:#dfdfdf;}
+    .s-list.basic-info .list li.feedback{background:url('https://dfzrjox9sv97l.cloudfront.net/2018/images/mobile/today/ic-profile-feedback@2x.png') no-repeat left;background-size:20px;}
+</style><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/OOU4XAFfeAV4kM4+W9WBwNAHqq/bvtrRcJ1wpnNyO/i076BSUy1d14l2kBEgVmEuvxojSpD23172C6hBg2AQYAAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AwrB+XVH/KV6HfZNVtSEqlUJi3yUbtCp0/TJRj+38NDIw19/9P1h7ECTtdLdhIzG0Bsl4n/0rVmttJtGUCcewgAAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="Ax15QOERqai2A5XWrDY38Eg07xh2T0pkhpDPJuDlxr7D2Ka8wHvklgK7tTPZOnT+8H31lwHto5JpvYV8jRn1WgIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="https://adservice.google.co.kr/adsid/integrator.js?domain=www.diningcode.com" as="script"><script type="text/javascript" src="https://adservice.google.co.kr/adsid/integrator.js?domain=www.diningcode.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.diningcode.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.diningcode.com"></script></head>
+	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+        *{margin: 0; padding: 0;}
+        #wrap{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .header-wrap{width: 100%;height: 80px;background-color: white;}
+        #main {flex: 1 1;}
+        .index__area{max-width: 1140px; width: 100%; margin: auto;}
+        .index__area--list{
+            /* grid 로 contBox, mapBox 를 한줄 정렬 */
+            display: grid;
+            -webkit-display: grid;
+            /* contBox, mapBox 영역을 얼마나 차지할지 (width값 지정하고 싶으면 별도 지정가능) */
+            grid-template-columns: 2fr 1fr;
+            /* grid-template-columns: 400px 200px; */
+            /* grid-template-columns: 70% 30%; */
+            
+            /* contBox, mapBox 위,아래 여백 사이즈 */
+            gap: 15px;
+            /* contBox, mapBox 두 박스 정렬 */
+            align-items: baseline;
+            margin-top: 10px;
+        }
+        .index__area--contBox{
+            height: auto;
+            max-height : 460px;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: white;
+            overflow: hidden;
+            border-top: 1px solid #ccc;
+        }
+        .index__area--mapBox{
+            height: 100px;
+            padding: 15px;
+            background-color: seagreen;
+            box-sizing: border-box;
+            width : 360px;
+        }
+        .footer{
+            height: 80px;
+            width: 100%; 
+            margin: 20px auto 0;
+            border: 1px solid #000;
+        }
+        .Rest_Review_sccore_item{
+        	float : right;
+        	margin-right: 10px;
+        }	
+        .Rest_Review{
+         	list-style: none;	
+        }
+        .Rest_Review_score{
+        	float : right;
+        	margin-right: 10px;
+        	font-family : bold;
+        	color :#bfb5b5
+        }
+       
+        .review{
+        	max-width: 100px;
+        }
+        .Rest_Review_TotalList{
+        
+        padding : 5px;
+        }
+        .Rest_header{
+        	 display: flex;
+    		align-items: center;
+   			 justify-content: space-between;
+   			width: 100%;
+   			margin-bottom: 10px;
+   			
+        }
+        .userInfo{
+        	height:100px;
+        }
+        .Rest_UserInfo_Stat{
+        	list-style: none;
+        }
+        .Rest_UserInfo_StatItem{
+        	float : left;
+        	margin-left: 10px;
+        }
+        .Rest_Review_Wrap{
+        	  display: grid;
+            -webkit-display: grid;
+            /* contBox, mapBox 영역을 얼마나 차지할지 (width값 지정하고 싶으면 별도 지정가능) */
+            grid-template-columns: 1fr 2fr;
+            padding: 10px;
+        }
+        .Rest_Review_Text{
+        	font-family: 'Black Han Sans', sans-serif;
+        }
+        .Main_title{
+        	width: 100%;
+        	padding: 40px 5px;
+        	background-color: white;
+        	box-sizing: border-box;
+        }
+        .Total_Title{
+        	font-size: 30px;
+        	font-weight: bold;
+        }
+        
+        
+        .like_sector{
+        
+        	display: flex;
+    		align-items: center;
+   			 justify-content: flex-end;
+        }
+        .clearfix:before, .clearfix:after {
+        content: "";display: table;clear: both;
+        }
+        
+        
+   		.als-container {
+	position: relative;
+	width: 100%;
+	margin: 0px auto;
+	z-index: 0;
+	
+}
+
+.als-viewport {
+	position: relative;
+	overflow: hidden;
+	
+}
+
+.als-wrapper {
+	position: relative;
+	list-style: none;
+	
+}
+
+.als-item {
+	position: relative;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+}
+
+
+#demo1 {
+	margin: 40px auto;
+}
+
+#demo1 .als-item {
+	margin: 0px 5px;
+	padding: 4px 0px;
+	min-height: 120px;
+	min-width: 100px;
+	text-align: center;
+	
+}
+
+#demo1 .als-item img {
+	display: block;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+#demo1 .als-prev, #demo1 .als-next {
+	top: 40px;
+}
+
+#demo1 .als-prev {
+	left: 2%;
+}
+
+#demo1 .als-next {
+	right: 2%;
+}
+
+.blogWrap{
+	background-color:#FEF9EF;
+}
+.blogTitle{
+	margin-bottom: 20px;
+	
+}
+.blogItem{
+	margin: 5px;
+	 border-bottom: 1px solid #ccc;
+	 font-family: 'East Sea Dokdo', cursive;
+	 font-size: 20px;
+	 margin-bottom :40px;
+}
+.bg1 { background-color:#EFEFEF; 
+}
+.bg2{
+	background-color:white; 
+}
+.like_Count{
+	font-size:20px;
+	color: red;
+}
+
+.Main_title_Wrap{
+	margin-bottom : 20px;
+}
+.Review_Count{
+	font-size :20px;
+	color : lightgray;
+}
+.Res_Info{
+	font-size :17px;
+	color : #6e795d;
+	display: inline-block;
+	width:200px;
+}
+.Res_det{
+	font-size :17px;
+	text-align:center;
+}
+#heart{
+		font-size: 60px;
+		color : red;
+	}
+
+</style>    	

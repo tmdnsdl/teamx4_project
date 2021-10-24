@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="teamx4.teamx4Bean">
+  
+  <insert id="insertAllData">
+		<foreach collection="list" open="DECLARE BEGIN" close="; END;" separator=";" item="item">
+			insert into restaurant(restNum, restImg, restName, restMenu, restPrice, restKeyword, restTime1, restTime2, restAdress, restTel, restTag)
+			values(restaurant_seq.nextval, #{item.restImg}, #{item.restName}, #{item.restMenu}, #{item.restPrice}, #{item.restKeyword}, #{item.restTime1}, #{item.restTime2}, #{item.restAdress}, #{item.restTel}, #{item.restTag})
+		</foreach>
+	</insert>
+  
+  	<select id="selectAllreviews" resultType="teamx4.model.reviewsBean">
+  	
+	select * from review
+  	
+  	</select>
+  	
+  	<select id="selectAllrest" resultType="teamx4.model.teamx4Bean">
+  	
+	select * from restaurant
+  	
+  	</select>
+  	
+  	
+  	<select id="selectByInputArr" resultType="teamx4.model.teamx4Bean">
+  	
+	select * from restaurant where restadress like #{inputaddr}
+  	
+  	</select>
+  	
+  	<select id="selectByMapSearchWord" resultType="teamx4.model.teamx4Bean">
+  	
+	select * from restaurant 
+	<if test="whatColumn == 'restadress'"> where restadress like #{goSearchWord} </if>
+	<if test="whatColumn == 'restmenu'"> where restmenu like #{goSearchWord} </if>
+	<if test="whatColumn == 'restname'"> where restname like #{goSearchWord} </if>
+	<if test="whatColumn == 'resttag'"> where resttag like #{goSearchWord} </if>
+
+  	</select>
+  	
+  	<select id="getRestaurant" resultType="MyTeamx4">
+		select * from restaurant
+		where restNum = #{restNum}
+	</select>
+	
+	<insert id="insertReview">
+		insert into review( reviewnum, restNum, reviewStar, reviewTaste, reviewPrice, reviewService, reviewContent, reviewImage, reviewDate,userNum)
+		values(review_seq.nextval,#{restnum}, #{reviewstar}, #{reviewtaste}, #{reviewprice}, #{reviewservice}, #{reviewcontent}, #{reviewimage}, sysdate, #{usernum})
+	</insert>
+	
+	<select id="getReview" resultType="MyReview">
+		select * from review
+		where reviewNum = #{reviewnum}
+	</select>
+	
+	<select id="getReview2" resultType="MyReview">
+		select * from review
+		where restnum = #{restNum} and usernum= #{user_num}
+	</select>
+	
+	<update id="updateReview">
+		update review set reviewStar = #{reviewstar}, reviewTaste = #{reviewtaste}, reviewPrice = #{reviewprice}, reviewService = #{reviewservice}, reviewContent = #{reviewcontent}, reviewImage = #{reviewimage}, reviewDate = sysdate
+		where reviewNum = #{reviewnum}
+	</update>
+	
+	<delete id="deleteReview">
+		delete from review where reviewNum = #{reviewnum}
+	</delete>
+	
+	
+	<!-- 메인페이지 리뷰 불러오기 -->
+	
+	<select id="selectUser" resultType="teamx4.model.UserBean">
+	
+		select user_name from teamx4_member where user_num = #{user_num}
+	</select>
+	
+	<select id="selectUser2" resultType="teamx4.model.UserBean">
+	
+		select user_num, user_review_list from teamx4_member where user_num = #{user_num}
+	</select>
+	
+	<update id="updateUser">
+		update teamx4_member set user_review_list=#{user_review_list} where user_num=#{user_num}
+	</update>
+  
+  </mapper>

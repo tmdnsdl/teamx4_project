@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.model.teamx4_member">
+	<select id="getKakaoData" resultType="member.model.MemberBean">
+		select * from teamx4_member where user_num=#{user_num}
+	</select>
+
+	<select id="getAllData" resultType="MemberBean">
+		select * from teamx4_member
+	</select>
+	
+	
+	<select id="getRestData" resultType="RestBean">
+		select * from restaurant where restNum in
+		<foreach collection="array" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<select id="getReviewData" resultType="ReviewBean">
+		select * from review where reviewNum in
+		<foreach collection="array" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<select id="getReview" resultType="ReviewBean">
+		select * from review where reviewNum=#{reviewNum}
+	</select>
+	
+	<select id="getRest" resultType="RestBean">
+		select * from restaurant where restNum=#{restNum}
+	</select>
+	
+	<insert id="insertData">
+		insert into teamx4_member values(#{user_num},#{user_name},#{user_image},#{user_email},#{user_gender},#{user_type},#{user_review_list},#{user_like_list},#{user_diningName},#{user_diningAddr},#{user_diningReg},#{user_diningHp})
+	</insert>
+	
+	<update id="updateData">
+		update teamx4_member set user_type=#{user_type}, user_diningName=#{user_diningName}, user_diningAddr=#{user_diningAddr}, user_diningReg=#{user_diningReg}, user_diningHp=#{user_diningHp} where user_num=#{user_num}
+	</update>
+	
+	<update id="updateLikelist">
+		update teamx4_member set user_like_list=#{user_like_list} where user_num=#{user_num}
+	</update>
+	
+	<update id="updateReviewlist">
+		update teamx4_member set user_review_list=#{user_review_list} where user_num=#{user_num}
+	</update>
+	
+	<update id="updateUser">
+		update teamx4_member set user_name=#{user_name}, user_email=#{user_email}, user_image=#{user_image} where user_num=#{user_num}
+	</update>
+	
+	<update id="updateBizUser">
+		update teamx4_member set user_name=#{user_name}, user_email=#{user_email}, user_image=#{user_image}, user_diningName=#{user_diningName}, user_diningAddr=#{user_diningAddr}, user_diningHp=#{user_diningHp}, user_diningReg=#{user_diningReg} where user_num=#{user_num}
+	</update>
+	
+	<delete id="deleteData">
+		delete teamx4_member where user_num=#{user_num}
+	</delete>
+	
+	<delete id="deleteReviewData">
+		delete review where reviewnum=#{reviewNum}
+	</delete>
+	
+</mapper>

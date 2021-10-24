@@ -1,0 +1,289 @@
+*{
+	margin:0;
+}
+ .header-wrap{width: 100%;background-color: white;
+ text-align:center;}
+ .j_table{
+ 	width : 1000px;
+ }
+ 
+
+ .admin_main_bar{
+ 
+ padding: 5px;
+ margin-bottom: 5px;
+ text-align: left;
+ font-size: 15px;
+ }
+ 
+ .admin_user_jjh {
+	width: 100%;
+	height: 80px;
+	
+	
+ }
+ .admin_user_bar{
+ 	background-color: #f0f0ee;
+	border: 1px solid #ddd;
+	overflow: hidden;
+ }
+
+
+
+ nav{
+    	font-size: 12pt;
+    	font-family: 'PT Sans', Arial, Sans-serif;
+    	position: relative;
+    }
+    nav ul{
+    	padding: 0;
+    	margin: 0 auto;
+    	width: auto;
+    }
+    nav a{
+    	line-height: 50px;
+      height: 50px;
+    }
+    nav li a{
+    	box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+    }
+    nav li:last-child a{
+    	border-right: 0;
+        }
+   
+    nav a#pull{
+    	display: none;
+    }
+      html {
+      -webkit-touch-callout:none;
+      -webkit-user-select:none;
+      -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+      }
+
+      ul{
+        /*list-style-type: none;*/
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+      }
+      li{
+        /*position: relative;*/
+        display: inline-block;
+      }
+      li a{
+        color: #FFFFFF;
+        text-align: center;
+        padding: 14.5px 16px;
+        text-decoration: none;
+      }
+      li a:hover{
+        /*color: #597812;*/
+        color: #FFD400;
+        font-weight:normal;
+      }
+      .menu {
+       width: 100%;
+       height: 50px;
+       text-align: center;
+       max-width: 100%;
+       background-position: center;
+       background-size: cover;
+       background-color: #333333;color: white;
+       z-index: 1;
+     }
+     
+     .info_admin{
+     	width : 100%;
+     	margin-top:200px;
+     	
+     }
+     .admin_table_2{
+     	width : 80%;
+     	
+		justify-content: center;
+		margin: 50px auto 0;
+     }
+    
+     .admin_table_items{
+     	width:100%;
+     	
+     }
+     table, td, th {
+    border-collapse : collapse;
+    text-align: center;
+};
+
+tr {
+	
+	margin-bottom:30px;
+}
+
+th{
+	
+	height:100px;
+}
+
+
+
+
+
+
+
+
+
+.footer_nav a {
+	color: #555;
+}
+
+.footer_nav li::before {
+	content: "|";
+	padding-right: 10px;
+	color: lightgray;
+}
+
+.footer_nav li:first-child::before {
+	content: none
+}
+
+.admin_container {
+	width: 100%;
+	display: flex;
+	
+}
+
+.admin_nav {
+	width: 260px;
+	background: #f0f0ee;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	height : 200px;
+}
+
+.admin_menu li {
+	list-style: none;
+}
+
+.admin_nav a {
+	color: #555;
+}
+
+.admin_content_box {
+	width: 1240px;
+	position: relative;
+	margin: auto;
+	height: 800px;
+}
+
+.admin_content_box b {
+	padding-left: 300px;
+	padding-top: 100px;
+	font-size: 20px;
+	margin-bottom: 30px;
+	display: block;
+}
+
+.admin_content_box img {
+	padding-left: 320px;
+	font-size: 20px;
+	display: block;
+}
+
+.cate_title {
+	padding-left: 100px;
+	margin-bottom: 20px;
+}
+
+.prod_title {
+	padding-left: 130px;
+	margin-bottom: 20px;
+}
+
+.admin_table {
+	margin-left: 230px;
+	width: 450px;
+	height: 150px;
+	text-align: center;
+}
+
+.admin_prod_table {
+	margin-left: 230px;
+	width: 450px;
+	height: 430px;
+}
+
+.admin_update_table {
+	margin-left: 230px;
+	width: 450px;
+	height: 500px;
+}
+
+.admin_view_container {
+	width: 100%;
+	display: flex;
+}
+
+.admin_view_box {
+	width: 100%;
+}
+
+.admin_view_box td {
+	text-align: center;
+}
+
+.board_container {
+	width: 100%;
+}
+
+.board_content_box {
+	width: 1240px;
+	position: relative;
+	margin: auto;
+}
+
+.board_content_box h3 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.board_content_box td {
+	text-align: center;
+}
+
+.board_table {
+	margin: auto;
+	width: 450px;
+	height: 280px;
+}
+
+.reply_table {
+	margin: auto;
+	width: 1000px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: #f5f5f4;
+}
+
+.input_oqty {
+	border-radius: 0;
+	-webkit-appearance: none;
+	border: 1px solid #cacaca;
+}
+
+.input_edit {
+	-webkit-appearance: none;
+	border: 0;
+}
+
+.cart_content_box td {
+	text-align: center;
+	font-size: 18px;
+}
+
+ footer{
+            height: 80px;
+            width: 100%; 
+            margin: 100px auto 0;
+        }

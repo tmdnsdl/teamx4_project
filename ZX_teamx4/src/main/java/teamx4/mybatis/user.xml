@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- member.xml -->
+
+<mapper namespace="admin.model.UserBean">
+		
+		
+	<select id="userInfo" resultType="admin.model.UserBean">
+	
+		select * from teamx4_member where  <if test="column == 'name'"> user_name like #{keyword} and </if>
+								   <if test="column == 'num'">  user_num like #{keyword} and </if>
+								    user_type = 0 order by user_num asc
+	</select>
+		
+	<select id="userCount" resultType="int">
+	
+		select count(*) from teamx4_member where <if test="column == 'name'">  user_name like #{keyword} and </if>
+								   <if test="column == 'num'">  user_num like #{keyword}  and </if>
+								    user_type = 0 order by user_num asc
+	</select>
+	
+	<select id="businessCount" resultType="int">
+	
+		select count(*) from teamx4_member where <if test="column == 'diningname'"> user_diningname like #{keyword} and </if>
+								   <if test="column == 'diningreg'">  user_diningreg like #{keyword}  and </if>
+								   <if test="column == 'addr'">  user_diningaddr like #{keyword}  and </if>
+								     user_type = 1 order by user_num asc
+	</select>
+	
+	<select id="businessInfo" resultType="admin.model.UserBean">
+	
+		select * from teamx4_member 	where	  <if test="column == 'diningname'">  user_diningname like #{keyword} and </if>
+								   <if test="column == 'diningreg'">  user_diningreg like #{keyword}  and </if>
+								   <if test="column == 'addr'">  user_diningaddr like #{keyword}  and </if>
+								   user_type = 1 order by user_num asc
+	</select>
+	
+	<select id="selectRest" resultType="rest.model.RestBean">
+	
+		select * from restaurant   <if test="column == 'name'">  where restname like #{keyword}  </if>
+								   <if test="column == 'addr'">  where restadress like #{keyword}  </if>
+								   order by restnum asc
+	</select>
+	
+	<select id="TotalCountRest" resultType="int">
+	
+		select count(*) from restaurant <if test="column == 'name'"> where restname like #{keyword}  </if>
+								   <if test="column == 'num'"> where restadress like #{keyword}  </if>
+								   
+								   order by restnum asc
+	</select>
+	
+	<select id="TotalCountReview" resultType="int">
+	
+		select count(*)
+		from restaurant inner join review on restaurant.restnum = review.restnum 
+		 <if test="column == 'business'">  and restaurant.restname = #{keyword}</if>
+		 <if test="column == 'name'">  and review.usernum = #{keyword}</if>
+		  order by reviewdate asc
+	
+	</select>
+	
+	<select id="selectReview" resultType="admin.model.AdminReviewBean">
+	
+		select reviewdate,restname,usernum,reviewcontent,reviewstar,reviewtaste,reviewservice,reviewprice,reviewnum 
+		from restaurant inner join review on restaurant.restnum = review.restnum 
+		 <if test="column == 'business'">  and restaurant.restname = #{keyword} </if>
+		 <if test="column == 'name'">  and review.usernum = #{keyword} </if>
+		  order by reviewdate asc
+	
+	</select>
+	
+	<delete id="deleteUser">
+	
+		delete from teamx4_member where user_num = #{usernum}
+	</delete>
+	
+	<delete id="deleteReviewByUser">
+	
+		delete from review where usernum = #{usenum}
+	</delete>
+	
+	<delete id="deleteRest">
+	
+		delete from restaurant where restnum = #{restnum}		
+	</delete>
+	
+	<delete id="deleteReview">
+	
+		delete from review where reviewnum = #{reviewnum}		
+	</delete>
+	
+	<select id="updateRest" resultType="rest.model.RestBean">
+	
+		select * from restaurant where restnum = #{restnum}
+	</select>
+	
+	<update id="updateRestFinal">
+	
+		update restaurant set restname = #{restname} ,restmenu = #{restmenu} ,restkeyword = #{restkeyword} , restadress = #{restadress},
+		resttel = #{resttel} , restimg = #{restimg} where restnum = #{restNum}
+	</update>
+	
+	
+</mapper>

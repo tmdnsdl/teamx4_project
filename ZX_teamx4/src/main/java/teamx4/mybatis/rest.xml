@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- member.xml -->
+
+<mapper namespace="rest.model.RestBean">
+		
+		
+		<select id="selectData" resultType="MyRest">
+		
+			select * from restaurant where restnum = #{i}
+		
+		</select>
+		
+		<select id="findLikeList" resultType="rest.model.UserBean">
+		
+			select user_like_list from teamx4_member where user_num = #{usernum}
+		
+		</select>
+		
+		<update id="addlikelist">
+		
+			update teamx4_member set user_like_list = #{restnum} where user_num = #{usernum}
+		</update>
+		
+		<update id="addlikelist2">
+		
+			update teamx4_member set user_like_list = #{comparelikelist} where user_num = #{usernum}
+		
+		</update>
+		
+		<update id="addLikeCount">
+		
+			update restaurant set restlike = restlike+1 where restnum = #{restnum}
+		</update>
+		
+		<update id="subLikeCount">
+		
+			update restaurant set restlike = restlike-1 where restnum = #{restnum}
+		</update>
+		
+		<select id="countrestlike" resultType="int">
+		
+			select restlike from restaurant where restnum = #{restnum}
+		</select>
+		
+		<select id="reviewUserInfo" resultType="rest.model.UserBean">
+		
+			select * from teamx4_member where user_num = #{usernum}
+		</select>
+</mapper>
